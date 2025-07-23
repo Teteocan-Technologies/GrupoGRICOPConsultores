@@ -1,6 +1,7 @@
 # Backend de contacto para GRICOP
 
 ## ¿Qué hace?
+
 Recibe los datos del formulario de contacto y envía un correo a los destinatarios configurados, con copia al remitente.
 
 ## Configuración
@@ -14,10 +15,20 @@ Recibe los datos del formulario de contacto y envía un correo a los destinatari
    npm start
    ```
 
+
 ## Variables de entorno
 - `GMAIL_USER`: Tu correo de Gmail (debe tener habilitado "acceso de apps menos seguras" o usar App Password si tienes 2FA).
 - `GMAIL_PASS`: Contraseña o App Password de Gmail.
 - `TO_EMAILS`: Correos destino separados por coma.
+
+## Pruebas sin molestar a los destinatarios reales
+Para hacer pruebas y evitar que los correos lleguen a los destinatarios principales, cambia temporalmente la variable `TO_EMAILS` por tu propio correo o uno de prueba. Ejemplo:
+
+```
+TO_EMAILS = tucorreo@gmail.com
+```
+
+Así solo tú recibirás los mensajes de prueba. Cuando termines, vuelve a poner los correos reales.
 
 ## Despliegue
 Puedes subir este backend a Render, Railway, Vercel, etc. Solo asegúrate de poner las variables de entorno.
