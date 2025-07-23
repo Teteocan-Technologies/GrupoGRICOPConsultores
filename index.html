@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo GRICOP Consultores - Protección Civil y Seguridad</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: #334155;
+            background-color: #ffffff;
+            font-weight: 400;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: #0f172a;
+            line-height: 1.3;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 50%, #0f172a 100%);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #1e40af, #1e3a8a);
+            color: #ffffff;
+            padding: 14px 28px;
+            border-radius: 12px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            box-shadow: 0 4px 12px rgba(30, 64, 175, 0.2);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(30, 64, 175, 0.3);
+        }
+        
+        .btn-secondary {
+            background-color: #ffffff;
+            color: #1e40af;
+            padding: 14px 28px;
+            border-radius: 12px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 2px solid #1e40af;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #1e40af;
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+        
+        .card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(15, 23, 42, 0.12);
+        }
+        
+        .nav-link {
+            color: #475569;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .nav-link:hover {
+            color: #1e40af;
+        }
+        
+        .section-padding {
+            padding: 100px 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .grid-pattern {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23ffffff" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        }
+        
+        @media (max-width: 640px) {
+            .section-padding {
+                padding: 50px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2rem !important;
+                line-height: 1.2 !important;
+            }
+            
+            .hero p {
+                font-size: 1rem !important;
+            }
+            
+            .container {
+                padding: 0 16px;
+            }
+            
+            .grid-3 {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .card {
+                padding: 24px;
+            }
+            
+            .btn-primary, .btn-secondary {
+                padding: 12px 24px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (min-width: 641px) and (max-width: 768px) {
+            .section-padding {
+                padding: 60px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem !important;
+            }
+            
+            .hero p {
+                font-size: 1.1rem !important;
+            }
+            
+            .grid-3 {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+        }
+        
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .grid-3 {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2.5rem;
+            }
+        }
+        
+        @media (min-width: 1025px) {
+            .grid-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50 border-b border-gray-200">
+        <div class="container">
+            <div class="flex justify-between items-center py-3 md:py-4">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <img src="LogoGRICOP.png" alt="Logo GRICOP" class="h-8 md:h-10 w-auto object-contain">
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#inicio" class="nav-link">Inicio</a>
+                    <a href="servicios.html" class="nav-link">Servicios</a>
+                    <a href="nosotros.html" class="nav-link">Nosotros</a>
+                    <a href="contacto.html" class="nav-link">Contacto</a>
+                    <a href="contacto.html" class="btn-primary">Solicitar Cotización</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700 p-2" aria-label="Abrir menú">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden bg-white border-t py-4">
+                <a href="#inicio" class="block py-3 px-4 nav-link">Inicio</a>
+                <a href="servicios.html" class="block py-3 px-4 nav-link">Servicios</a>
+                <a href="nosotros.html" class="block py-3 px-4 nav-link">Nosotros</a>
+                <a href="contacto.html" class="block py-3 px-4 nav-link">Contacto</a>
+                <div class="px-4 mt-4">
+                    <a href="contacto.html" class="btn-primary block text-center">Solicitar Cotización</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-gradient text-white section-padding relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
+        <div class="container relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <!-- Contenido principal -->
+                <div class="lg:col-span-6 lg:col-start-1 space-y-8">
+                    <div class="inline-flex items-center bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 border border-white/20">
+                        <i class="fas fa-shield-check text-blue-300 mr-3"></i>
+                        <span class="text-sm font-semibold tracking-wide">CONSULTORES CERTIFICADOS</span>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <h1 class="text-4xl md:text-5xl xl:text-6xl font-bold leading-tight">
+                            <span class="text-white">Protección Civil</span><br>
+                            <span class="text-blue-300">Profesional</span>
+                        </h1>
+                        
+                        <p class="text-lg md:text-xl text-gray-200 font-medium leading-relaxed">
+                            Garantizamos el cumplimiento normativo y la seguridad de tu empresa
+                        </p>
+                        
+                        <p class="text-base md:text-lg text-gray-300 leading-relaxed max-w-lg">
+                            Más de 15 años de experiencia respaldando a empresas en el cumplimiento de normativas de protección civil y seguridad industrial.
+                        </p>
+                        
+                        <!-- Eslogan destacado -->
+                        <div class="bg-gradient-to-r from-blue-500/20 to-blue-600/20 backdrop-blur-sm border border-blue-400/30 rounded-2xl p-4 md:p-6 max-w-lg">
+                            <div class="flex items-center space-x-3 mb-2">
+                                <i class="fas fa-quote-left text-blue-300 text-lg"></i>
+                                <span class="text-blue-300 font-semibold text-xs md:text-sm tracking-wide">NUESTRO COMPROMISO</span>
+                            </div>
+                            <p class="text-xl md:text-2xl font-bold text-white leading-tight">
+                                <span class="text-blue-300">Cero accidentes,</span><br>
+                                <span class="text-white">mil oportunidades</span>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                        <a href="contacto.html" class="btn-primary text-center inline-flex items-center justify-center">
+                            <i class="fas fa-calendar-check mr-3"></i> 
+                            Agendar Consulta
+                        </a>
+                        <a href="servicios.html" class="btn-secondary text-center inline-flex items-center justify-center">
+                            <i class="fas fa-list-ul mr-3"></i> 
+                            Ver Servicios
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Carrusel de imágenes del equipo -->
+                <div class="lg:col-span-5 lg:col-start-8 mt-8 lg:mt-0">
+                    <div class="relative px-4 lg:px-0">
+                        <!-- Contenedor del carrusel -->
+                        <div class="relative w-full h-72 md:h-80 lg:h-96 rounded-3xl overflow-hidden shadow-2xl border border-white/20">
+                            <!-- Imagen 1 -->
+                            <div class="carousel-slide absolute inset-0 transition-transform duration-1000 ease-in-out">
+                                <img src="Foto del equipo GRICOP (1).jpeg" alt="Equipo GRICOP 1" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent"></div>
+                                <div class="absolute bottom-4 md:bottom-6 left-4 md:left-6 right-4 md:right-6">
+                                    <h3 class="text-lg md:text-xl font-bold text-white mb-2">Expertos en Protección Civil</h3>
+                                    <p class="text-gray-200 text-sm">Profesionales certificados que protegen vidas</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Imagen 2 -->
+                            <div class="carousel-slide absolute inset-0 transition-transform duration-1000 ease-in-out translate-x-full">
+                                <img src="Foto del equipo GRICOP (2).jpeg" alt="Equipo GRICOP 2" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent"></div>
+                                <div class="absolute bottom-4 md:bottom-6 left-4 md:left-6 right-4 md:right-6">
+                                    <h3 class="text-lg md:text-xl font-bold text-white mb-2">Capacitación Preventiva</h3>
+                                    <p class="text-gray-200 text-sm">Formación que salva vidas en tu empresa</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Imagen 3 -->
+                            <div class="carousel-slide absolute inset-0 transition-transform duration-1000 ease-in-out translate-x-full">
+                                <img src="Foto del equipo GRICOP (3).jpeg" alt="Equipo GRICOP 3" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent"></div>
+                                <div class="absolute bottom-4 md:bottom-6 left-4 md:left-6 right-4 md:right-6">
+                                    <h3 class="text-lg md:text-xl font-bold text-white mb-2">Protección Integral</h3>
+                                    <p class="text-gray-200 text-sm">Soluciones que blindan tu empresa</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Imagen 4 -->
+                            <div class="carousel-slide absolute inset-0 transition-transform duration-1000 ease-in-out translate-x-full">
+                                <img src="Foto del equipo GRICOP (4).jpeg" alt="Equipo GRICOP 4" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent"></div>
+                                <div class="absolute bottom-4 md:bottom-6 left-4 md:left-6 right-4 md:right-6">
+                                    <h3 class="text-lg md:text-xl font-bold text-white mb-2">Seguridad Garantizada</h3>
+                                    <p class="text-gray-200 text-sm">Sistemas que previenen tragedias</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Controles del carrusel -->
+                            <button id="prevSlide" aria-label="Imagen anterior" class="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white p-2 md:p-3 rounded-full transition-all duration-300 border border-white/30">
+                                <i class="fas fa-chevron-left text-sm md:text-base"></i>
+                            </button>
+                            <button id="nextSlide" aria-label="Siguiente imagen" class="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white p-2 md:p-3 rounded-full transition-all duration-300 border border-white/30">
+                                <i class="fas fa-chevron-right text-sm md:text-base"></i>
+                            </button>
+                        </div>
+                        
+                        <!-- Indicadores del carrusel -->
+                        <div class="flex justify-center space-x-2 mt-4 md:mt-6">
+                            <button aria-label="Ir a imagen 1" class="carousel-indicator w-3 h-3 bg-blue-300 rounded-full transition-all duration-300 opacity-100" data-slide="0"></button>
+                            <button aria-label="Ir a imagen 2" class="carousel-indicator w-3 h-3 bg-white/40 rounded-full transition-all duration-300 opacity-60" data-slide="1"></button>
+                            <button aria-label="Ir a imagen 3" class="carousel-indicator w-3 h-3 bg-white/40 rounded-full transition-all duration-300 opacity-60" data-slide="2"></button>
+                            <button aria-label="Ir a imagen 4" class="carousel-indicator w-3 h-3 bg-white/40 rounded-full transition-all duration-300 opacity-60" data-slide="3"></button>
+                        </div>
+                        
+                        <!-- Stats flotantes - ocultas en móvil, visibles en desktop -->
+                        <div class="hidden lg:block">
+                            <div class="absolute -bottom-4 -left-4 bg-blue-500 rounded-2xl p-4 shadow-xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold text-white">500+</div>
+                                    <div class="text-xs font-medium text-blue-100">Empresas Protegidas</div>
+                                </div>
+                            </div>
+                            <div class="absolute -top-4 -right-4 bg-white rounded-2xl p-4 shadow-xl transform -rotate-3 hover:rotate-0 transition-transform duration-300">
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold text-blue-600">15+</div>
+                                    <div class="text-xs font-medium text-gray-600">Años de Experiencia</div>
+                                </div>
+                            </div>
+                            <div class="absolute top-1/3 -left-3 bg-blue-700 rounded-2xl p-3 shadow-xl transform rotate-6 hover:rotate-0 transition-transform duration-300">
+                                <div class="text-center">
+                                    <div class="text-lg font-bold text-white">0</div>
+                                    <div class="text-xs font-medium text-blue-100">Accidentes</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Decorative elements -->
+        <div class="absolute top-20 right-10 w-32 h-32 bg-blue-500/10 rounded-full blur-xl"></div>
+        <div class="absolute bottom-20 left-10 w-24 h-24 bg-white/10 rounded-full blur-xl"></div>
+    </section>
+
+    <!-- Servicios Section -->
+    <section id="servicios" class="section-padding bg-blue-900 text-white">
+        <div class="container">
+            <div class="text-center mb-20">
+                <div class="inline-flex items-center bg-blue-500/20 backdrop-blur-sm text-blue-300 px-6 py-3 rounded-full text-sm font-semibold mb-8 border border-blue-500/30">
+                    <i class="fas fa-cogs mr-2"></i>
+                    NUESTROS SERVICIOS
+                </div>
+                
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                    Soluciones Integrales en
+                    <span class="text-blue-300">Protección Civil</span>
+                </h2>
+                
+                <p class="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
+                    Servicios especializados diseñados para garantizar el cumplimiento normativo y la seguridad de tu empresa.
+                </p>
+            </div>
+
+            <div class="grid-3 mb-16">
+                <!-- Servicio 1 -->
+                <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl overflow-hidden group hover:bg-white/15 transition-all duration-300 shadow-xl">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="Foto del equipo GRICOP (1).jpeg" alt="Capacitaciones STPS" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent"></div>
+                        <div class="absolute bottom-4 left-6">
+                            <div class="w-12 h-12 bg-blue-500/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+                                <i class="fas fa-graduation-cap text-xl text-blue-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold mb-4 text-white">Capacitaciones STPS</h3>
+                        <p class="text-gray-200 mb-6 leading-relaxed">Programas de capacitación especializada que preparan a su personal para actuar correctamente ante emergencias, salvando vidas y protegiendo su patrimonio.</p>
+                        <a href="servicios.html" class="inline-flex items-center text-blue-300 font-semibold hover:text-white transition-colors">
+                            Ver detalles 
+                            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Servicio 2 -->
+                <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl overflow-hidden group hover:bg-white/15 transition-all duration-300 shadow-xl">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="Foto del equipo GRICOP (2).jpeg" alt="Protección Civil" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent"></div>
+                        <div class="absolute bottom-4 left-6">
+                            <div class="w-12 h-12 bg-blue-500/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+                                <i class="fas fa-shield-alt text-xl text-blue-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold mb-4 text-white">Protección Civil</h3>
+                        <p class="text-gray-200 mb-6 leading-relaxed">Planes de contingencia y programas preventivos diseñados para proteger vidas humanas y evitar tragedias en su empresa.</p>
+                        <a href="servicios.html" class="inline-flex items-center text-blue-300 font-semibold hover:text-white transition-colors">
+                            Ver detalles
+                            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Servicio 3 -->
+                <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl overflow-hidden group hover:bg-white/15 transition-all duration-300 shadow-xl">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="Foto del equipo GRICOP (3).jpeg" alt="Manejo de Residuos" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent"></div>
+                        <div class="absolute bottom-4 left-6">
+                            <div class="w-12 h-12 bg-blue-500/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+                                <i class="fas fa-recycle text-xl text-blue-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold mb-4 text-white">Manejo de Residuos</h3>
+                        <p class="text-gray-200 mb-6 leading-relaxed">Gestión responsable de residuos que protege al medio ambiente y garantiza la seguridad de las comunidades cercanas a su empresa.</p>
+                        <a href="servicios.html" class="inline-flex items-center text-blue-300 font-semibold hover:text-white transition-colors">
+                            Ver detalles
+                            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Servicio 4 -->
+                <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl overflow-hidden group hover:bg-white/15 transition-all duration-300 shadow-xl">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="Foto del equipo GRICOP (4).jpeg" alt="Seguridad e Higiene" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent"></div>
+                        <div class="absolute bottom-4 left-6">
+                            <div class="w-12 h-12 bg-blue-500/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+                                <i class="fas fa-hard-hat text-xl text-blue-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold mb-4 text-white">Seguridad e Higiene</h3>
+                        <p class="text-gray-200 mb-6 leading-relaxed">Implementación de sistemas de seguridad industrial que protegen la integridad física de sus trabajadores y previenen accidentes laborales.</p>
+                        <a href="servicios.html" class="inline-flex items-center text-blue-300 font-semibold hover:text-white transition-colors">
+                            Ver detalles
+                            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Servicio 5 -->
+                <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl overflow-hidden group hover:bg-white/15 transition-all duration-300 shadow-xl">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="Foto del equipo GRICOP (5).jpeg" alt="Trámites y Permisos" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent"></div>
+                        <div class="absolute bottom-4 left-6">
+                            <div class="w-12 h-12 bg-blue-500/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+                                <i class="fas fa-file-alt text-xl text-blue-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold mb-4 text-white">Trámites y Permisos</h3>
+                        <p class="text-gray-200 mb-6 leading-relaxed">Gestión completa de trámites ante dependencias gubernamentales para mantener su empresa protegida y en cumplimiento total.</p>
+                        <a href="servicios.html" class="inline-flex items-center text-blue-300 font-semibold hover:text-white transition-colors">
+                            Ver detalles
+                            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Servicio 6 -->
+                <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl overflow-hidden group hover:bg-white/15 transition-all duration-300 shadow-xl">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="Foto del equipo GRICOP (6).jpeg" alt="Consultoría Especializada" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent"></div>
+                        <div class="absolute bottom-4 left-6">
+                            <div class="w-12 h-12 bg-blue-500/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+                                <i class="fas fa-clipboard-check text-xl text-blue-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold mb-4 text-white">Consultoría Especializada</h3>
+                        <p class="text-gray-200 mb-6 leading-relaxed">Asesoría integral para crear entornos de trabajo seguros donde la vida humana es la prioridad máxima en cada decisión.</p>
+                        <a href="servicios.html" class="inline-flex items-center text-blue-300 font-semibold hover:text-white transition-colors">
+                            Ver detalles
+                            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="servicios.html" class="bg-white text-blue-900 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all inline-flex items-center">
+                    <i class="fas fa-list-ul mr-3"></i> 
+                    Ver Catálogo Completo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Por qué elegirnos -->
+    <section class="section-padding bg-blue-800 text-white relative overflow-hidden">
+        <!-- Background elements -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+        
+        <div class="container relative z-10">
+            <div class="grid-2 items-center gap-16">
+                <div>
+                    <div class="inline-flex items-center bg-blue-500/20 backdrop-blur-sm text-blue-300 px-6 py-3 rounded-full text-sm font-semibold mb-8 border border-blue-500/30">
+                        <i class="fas fa-star mr-2"></i>
+                        ¿POR QUÉ ELEGIRNOS?
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                        Protección que 
+                        <span class="text-blue-300">Salva Vidas</span>
+                    </h2>
+                    <p class="text-xl text-gray-200 mb-8 leading-relaxed">
+                        Con más de 15 años de experiencia, somos el socio estratégico que su empresa necesita para prevenir accidentes y garantizar un ambiente laboral completamente seguro.
+                    </p>
+                    
+                    <div class="space-y-8">
+                        <div class="flex items-start group bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300">
+                            <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mr-6 flex-shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                                <i class="fas fa-shield-check text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-3">Prevención Total de Riesgos</h3>
+                                <p class="text-gray-200 leading-relaxed">Más de 500 empresas han confiado en nuestros servicios para mantener entornos seguros y libres de accidentes laborales.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start group bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300">
+                            <div class="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center mr-6 flex-shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                                <i class="fas fa-certificate text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-3">Certificaciones Vigentes</h3>
+                                <p class="text-gray-200 leading-relaxed">Mantenemos nuestras certificaciones al día para ofrecer el mejor servicio y cumplimiento normativo actualizado en protección civil.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start group bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300">
+                            <div class="w-16 h-16 bg-gradient-to-br from-white/20 to-white/10 rounded-2xl flex items-center justify-center mr-6 flex-shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-lg border border-white/20">
+                                <i class="fas fa-users-cog text-blue-300 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-3">Especialistas en Seguridad</h3>
+                                <p class="text-gray-200 leading-relaxed">Contamos con profesionales certificados en protección civil y seguridad industrial para garantizar la máxima protección.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="relative">
+                        <div class="relative overflow-hidden rounded-3xl shadow-2xl border border-white/20">
+                            <img src="Foto del equipo GRICOP (1).jpeg" alt="Equipo GRICOP" class="w-full object-cover h-96">
+                            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent"></div>
+                        </div>
+                        
+                        <!-- Stats Cards -->
+                        <div class="absolute -bottom-8 -right-8 bg-white rounded-2xl p-6 shadow-xl border border-gray-200">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-blue-600">15+</div>
+                                <div class="text-sm font-medium text-gray-600">Años de experiencia</div>
+                            </div>
+                        </div>
+                        <div class="absolute -top-8 -left-8 bg-blue-500 rounded-2xl p-6 shadow-xl">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-white">500+</div>
+                                <div class="text-sm font-medium text-blue-100">Empresas protegidas</div>
+                            </div>
+                        </div>
+                        <div class="absolute top-1/2 -translate-y-1/2 -right-4 bg-blue-700 rounded-2xl p-4 shadow-xl">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-white">0</div>
+                                <div class="text-xs font-medium text-blue-100">Accidentes</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+        <div class="container py-12 md:py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Logo y descripción -->
+                <div class="lg:col-span-2 space-y-6">
+                    <div class="flex items-center space-x-3">
+                        <div class="bg-white p-2 rounded-lg">
+                            <img src="LogoGRICOP_Imagen.png" alt="Logo GRICOP" class="w-8 h-8 object-contain">
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Grupo GRICOP</h3>
+                            <p class="text-sm text-gray-400">Consultores en Protección Civil</p>
+                        </div>
+                    </div>
+                    
+                    <p class="text-gray-300 leading-relaxed max-w-md">
+                        Especialistas en protección civil y seguridad industrial con más de 15 años garantizando el cumplimiento normativo empresarial.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-3">
+                        <span class="bg-blue-600/20 text-blue-300 px-3 py-1 rounded-full text-sm font-medium">
+                            <i class="fas fa-shield-check mr-1"></i> Certificados en Protección Civil
+                        </span>
+                        <span class="bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full text-sm font-medium">
+                            <i class="fas fa-award mr-1"></i> 15+ Años de Experiencia
+                        </span>
+                        <span class="bg-blue-400/20 text-blue-300 px-3 py-1 rounded-full text-sm font-medium">
+                            <i class="fas fa-heart mr-1"></i> 500+ Empresas Protegidas
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Mapa del sitio -->
+                <div class="space-y-4">
+                    <h4 class="text-lg font-semibold text-white">Mapa del Sitio</h4>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="#inicio" class="text-gray-300 hover:text-blue-400 transition-colors flex items-center">
+                                <i class="fas fa-home w-4 mr-2 text-blue-400"></i>
+                                Inicio
+                            </a>
+                        </li>
+                        <li>
+                            <a href="servicios.html" class="text-gray-300 hover:text-blue-400 transition-colors flex items-center">
+                                <i class="fas fa-cogs w-4 mr-2 text-blue-400"></i>
+                                Servicios
+                            </a>
+                        </li>
+                        <li>
+                            <a href="nosotros.html" class="text-gray-300 hover:text-blue-400 transition-colors flex items-center">
+                                <i class="fas fa-users w-4 mr-2 text-blue-400"></i>
+                                Nosotros
+                            </a>
+                        </li>
+                        <li>
+                            <a href="contacto.html" class="text-gray-300 hover:text-blue-400 transition-colors flex items-center">
+                                <i class="fas fa-envelope w-4 mr-2 text-blue-400"></i>
+                                Contacto
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Servicios principales -->
+                <div class="space-y-4">
+                    <h4 class="text-lg font-semibold text-white">Servicios Principales</h4>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="servicios.html#consultoria" class="text-gray-300 hover:text-blue-300 transition-colors flex items-center">
+                                <i class="fas fa-shield-alt w-4 mr-2 text-blue-300"></i>
+                                Protección Civil
+                            </a>
+                        </li>
+                        <li>
+                            <a href="servicios.html#capacitacion" class="text-gray-300 hover:text-blue-300 transition-colors flex items-center">
+                                <i class="fas fa-graduation-cap w-4 mr-2 text-blue-300"></i>
+                                Capacitaciones STPS
+                            </a>
+                        </li>
+                        <li>
+                            <a href="servicios.html#consultoria" class="text-gray-300 hover:text-blue-300 transition-colors flex items-center">
+                                <i class="fas fa-hard-hat w-4 mr-2 text-blue-300"></i>
+                                Seguridad e Higiene
+                            </a>
+                        </li>
+                        <li>
+                            <a href="servicios.html#consultoria" class="text-gray-300 hover:text-blue-300 transition-colors flex items-center">
+                                <i class="fas fa-cogs w-4 mr-2 text-blue-300"></i>
+                                Gestión Administrativa
+                            </a>
+                        </li>
+                        <li>
+                            <a href="servicios.html#integrales" class="text-gray-300 hover:text-blue-300 transition-colors flex items-center">
+                                <i class="fas fa-plus-circle w-4 mr-2 text-blue-300"></i>
+                                Servicios Integrales
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom Bar -->
+        <div class="border-t border-gray-800 bg-gray-950">
+            <div class="container py-4 md:py-6">
+                <div class="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
+                    <div class="text-center lg:text-left">
+                        <p class="text-white font-semibold mb-1">
+                            © 2025 Grupo GRICOP Consultores
+                        </p>
+                        <p class="text-sm text-gray-400">
+                            Un producto de <span class="text-blue-400 font-medium">Tlatec</span> por 
+                            <span class="text-blue-300 font-medium">Teteocan Technologies</span> ©
+                        </p>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-8">
+                        <div class="flex items-center space-x-2 text-sm text-gray-400">
+                            <i class="fas fa-clock text-blue-400"></i>
+                            <span class="text-center sm:text-left">Lun-Vie: 9:00-18:00 | Sáb: 9:00-14:00</span>
+                        </div>
+                        <div class="flex items-center space-x-4 sm:space-x-6 text-sm">
+                            <a href="nosotros.html" class="text-gray-400 hover:text-blue-400 transition-colors">Nosotros</a>
+                            <span class="text-gray-600 hidden sm:inline">•</span>
+                            <a href="servicios.html" class="text-gray-400 hover:text-blue-400 transition-colors">Servicios</a>
+                            <span class="text-gray-600 hidden sm:inline">•</span>
+                            <a href="contacto.html" class="text-gray-400 hover:text-blue-400 transition-colors">Contacto</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Menu móvil
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Carrusel de imágenes
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const indicators = document.querySelectorAll('.carousel-indicator');
+        const prevBtn = document.getElementById('prevSlide');
+        const nextBtn = document.getElementById('nextSlide');
+        const totalSlides = slides.length;
+
+        function updateCarousel() {
+            slides.forEach((slide, index) => {
+                if (index === currentSlide) {
+                    slide.style.transform = 'translateX(0)';
+                } else if (index < currentSlide) {
+                    slide.style.transform = 'translateX(-100%)';
+                } else {
+                    slide.style.transform = 'translateX(100%)';
+                }
+            });
+
+            // Actualizar indicadores
+            indicators.forEach((indicator, index) => {
+                if (index === currentSlide) {
+                    indicator.classList.remove('bg-white/40', 'opacity-60');
+                    indicator.classList.add('bg-blue-300', 'opacity-100');
+                } else {
+                    indicator.classList.remove('bg-blue-300', 'opacity-100');
+                    indicator.classList.add('bg-white/40', 'opacity-60');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentSlide = currentSlide === 0 ? totalSlides - 1 : currentSlide - 1;
+            updateCarousel();
+        }
+
+        // Event listeners
+        if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+        if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+
+        // Indicadores
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentSlide = index;
+                updateCarousel();
+            });
+        });
+
+        // Auto-play del carrusel
+        let carouselInterval = setInterval(nextSlide, 4000);
+
+        // Pausar auto-play al hacer hover
+        const carouselContainer = document.querySelector('.relative .w-full.h-96');
+        if (carouselContainer) {
+            carouselContainer.addEventListener('mouseenter', () => {
+                clearInterval(carouselInterval);
+            });
+
+            carouselContainer.addEventListener('mouseleave', () => {
+                carouselInterval = setInterval(nextSlide, 4000);
+            });
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
