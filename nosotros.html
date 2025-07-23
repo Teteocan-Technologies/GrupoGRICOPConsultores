@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros - Grupo GRICOP Consultores</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.7; color: #334155; background-color: #ffffff; font-weight: 400; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif; font-weight: 600; color: #0f172a; line-height: 1.3; }
+        .hero-gradient { background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 50%, #0f172a 100%); }
+        .btn-primary { background: linear-gradient(135deg, #1e40af, #1e3a8a); color: #ffffff; padding: 14px 28px; border-radius: 12px; text-decoration: none; display: inline-block; font-weight: 500; transition: all 0.3s ease; border: none; cursor: pointer; font-family: 'Inter', sans-serif; box-shadow: 0 4px 12px rgba(30, 64, 175, 0.2); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(30, 64, 175, 0.3); }
+        .btn-secondary { background-color: #ffffff; color: #1e40af; padding: 14px 28px; border-radius: 12px; text-decoration: none; display: inline-block; font-weight: 500; transition: all 0.3s ease; border: 2px solid #1e40af; font-family: 'Inter', sans-serif; }
+        .btn-secondary:hover { background-color: #1e40af; color: #ffffff; transform: translateY(-2px); }
+        .card { background: #ffffff; border-radius: 16px; padding: 32px; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08); transition: all 0.3s ease; border: 1px solid #e2e8f0; }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(15, 23, 42, 0.12); }
+        .nav-link { color: #475569; text-decoration: none; font-weight: 500; transition: all 0.3s ease; font-family: 'Inter', sans-serif; }
+        .nav-link:hover { color: #1e40af; }
+        .section-padding { padding: 100px 0; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; align-items: center; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+        @media (max-width: 640px) { .section-padding { padding: 50px 0; } .container { padding: 0 16px; } .grid-3 { grid-template-columns: 1fr; gap: 1.5rem; } .card { padding: 24px; } .btn-primary, .btn-secondary { padding: 12px 24px; font-size: 0.9rem; } }
+        @media (min-width: 641px) and (max-width: 768px) { .section-padding { padding: 60px 0; } .grid-3 { grid-template-columns: repeat(2, 1fr); gap: 2rem; } }
+        @media (min-width: 769px) and (max-width: 1024px) { .grid-3 { grid-template-columns: repeat(2, 1fr); gap: 2.5rem; } }
+        @media (min-width: 1025px) { .grid-3 { grid-template-columns: repeat(3, 1fr); } }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation (idéntica a servicios.html) -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50 border-b border-gray-200">
+        <div class="container">
+            <div class="flex justify-between items-center py-3 md:py-4">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <img src="LogoGRICOP.png" alt="Logo GRICOP" class="h-8 md:h-10 w-auto object-contain">
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link">Inicio</a>
+                    <a href="servicios.html" class="nav-link">Servicios</a>
+                    <a href="nosotros.html" class="nav-link text-blue-600 font-semibold">Nosotros</a>
+                    <a href="contacto.html" class="nav-link">Contacto</a>
+                    <a href="contacto.html" class="btn-primary">Solicitar Cotización</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700 p-2" aria-label="Abrir menú">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden bg-white border-t py-4">
+                <a href="index.html" class="block py-3 px-4 nav-link">Inicio</a>
+                <a href="servicios.html" class="block py-3 px-4 nav-link">Servicios</a>
+                <a href="nosotros.html" class="block py-3 px-4 nav-link text-blue-600 font-semibold">Nosotros</a>
+                <a href="contacto.html" class="block py-3 px-4 nav-link">Contacto</a>
+                <div class="px-4 mt-4">
+                    <a href="contacto.html" class="btn-primary block text-center">Solicitar Cotización</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white section-padding relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
+        <div class="container relative z-10">
+            <div class="text-center max-w-4xl mx-auto">
+                <div class="inline-flex items-center bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 border border-white/20 mb-8">
+                    <i class="fas fa-users text-blue-300 mr-3"></i>
+                    <span class="text-sm font-semibold tracking-wide">CONÓCENOS</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl xl:text-6xl font-bold leading-tight mb-6">
+                    <span class="text-white">Acerca de Nosotros</span><br>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-200 font-medium leading-relaxed mb-8 max-w-3xl mx-auto">
+                    Somos una empresa dedicada a la protección civil, seguridad e higiene y capacitación, comprometida con la prevención y el bienestar de nuestros clientes.
+                </p>
+            </div>
+        </div>
+        <!-- Decorative elements -->
+        <div class="absolute top-20 right-10 w-32 h-32 bg-blue-500/10 rounded-full blur-xl"></div>
+        <div class="absolute bottom-20 left-10 w-24 h-24 bg-white/10 rounded-full blur-xl"></div>
+    </section>
+
+    <!-- Misión y Visión -->
+    <section id="mision" class="section-padding bg-white">
+        <div class="container">
+            <div class="grid-2 gap-16 items-center">
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-16 h-16 flex items-center justify-center rounded-full bg-blue-100 mb-4 shadow">
+                        <i class="fas fa-shield-alt text-3xl text-blue-700"></i>
+                    </div>
+                    <h2 class="text-4xl font-bold text-blue-900 mb-4">Misión</h2>
+                    <p class="text-xl text-gray-600 mb-6">
+                        Salvaguardar la vida, patrimonio y bienes inmuebles de nuestros clientes, innovando los estándares de seguridad para disminuir posibles riesgos; creando conciencia de los mecanismos regulatorios de prevención, de acuerdo al grado de riesgo que tengan.
+                    </p>
+                </div>
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-16 h-16 flex items-center justify-center rounded-full bg-blue-100 mb-4 shadow">
+                        <i class="fas fa-eye text-3xl text-blue-700"></i>
+                    </div>
+                    <h2 class="text-4xl font-bold text-blue-900 mb-4">Visión</h2>
+                    <p class="text-xl text-gray-600 mb-6">
+                        Ser una empresa líder en prevención de riesgos, una de las mejores opciones eficientes en el mercado para resolver incidencias en Protección Civil, estando a la vanguardia en los sistemas de operación y prevención en los centros de trabajo y ofrecer capacitación integral que brinde conocimiento, seguridad y satisfacción al alcance de todos.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Valores y Principios -->
+    <section id="valores" class="section-padding bg-blue-50">
+        <div class="container">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-blue-900 mb-6">Valores</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Nuestros principios fundamentales:</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4">
+                <span class="inline-flex items-center px-4 py-2 rounded-full bg-white shadow text-blue-800 font-semibold text-lg"><i class="fas fa-handshake mr-2 text-blue-500"></i>Lealtad</span>
+                <span class="inline-flex items-center px-4 py-2 rounded-full bg-white shadow text-blue-800 font-semibold text-lg"><i class="fas fa-user-shield mr-2 text-blue-500"></i>Responsabilidad</span>
+                <span class="inline-flex items-center px-4 py-2 rounded-full bg-white shadow text-blue-800 font-semibold text-lg"><i class="fas fa-users mr-2 text-blue-500"></i>Respeto</span>
+                <span class="inline-flex items-center px-4 py-2 rounded-full bg-white shadow text-blue-800 font-semibold text-lg"><i class="fas fa-hands-helping mr-2 text-blue-500"></i>Compromiso</span>
+                <span class="inline-flex items-center px-4 py-2 rounded-full bg-white shadow text-blue-800 font-semibold text-lg"><i class="fas fa-balance-scale mr-2 text-blue-500"></i>Honestidad</span>
+                <span class="inline-flex items-center px-4 py-2 rounded-full bg-white shadow text-blue-800 font-semibold text-lg"><i class="fas fa-people-arrows mr-2 text-blue-500"></i>Unidad</span>
+                <span class="inline-flex items-center px-4 py-2 rounded-full bg-white shadow text-blue-800 font-semibold text-lg"><i class="fas fa-equals mr-2 text-blue-500"></i>Igualdad</span>
+                <span class="inline-flex items-center px-4 py-2 rounded-full bg-white shadow text-blue-800 font-semibold text-lg"><i class="fas fa-sync-alt mr-2 text-blue-500"></i>Adaptabilidad</span>
+                <span class="inline-flex items-center px-4 py-2 rounded-full bg-white shadow text-blue-800 font-semibold text-lg"><i class="fas fa-running mr-2 text-blue-500"></i>Diligencia</span>
+                <span class="inline-flex items-center px-4 py-2 rounded-full bg-white shadow text-blue-800 font-semibold text-lg"><i class="fas fa-clock mr-2 text-blue-500"></i>Puntualidad</span>
+                <span class="inline-flex items-center px-4 py-2 rounded-full bg-white shadow text-blue-800 font-semibold text-lg"><i class="fas fa-infinity mr-2 text-blue-500"></i>Constancia</span>
+                <span class="inline-flex items-center px-4 py-2 rounded-full bg-white shadow text-blue-800 font-semibold text-lg"><i class="fas fa-user-check mr-2 text-blue-500"></i>Integridad</span>
+                <span class="inline-flex items-center px-4 py-2 rounded-full bg-white shadow text-blue-800 font-semibold text-lg"><i class="fas fa-eye mr-2 text-blue-500"></i>Transparencia</span>
+                <span class="inline-flex items-center px-4 py-2 rounded-full bg-white shadow text-blue-800 font-semibold text-lg"><i class="fas fa-soap mr-2 text-blue-500"></i>Pulcritud</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Objetivos -->
+    <section id="objetivos" class="section-padding bg-white">
+        <div class="container">
+            <div class="text-center mb-12">
+                <div class="w-16 h-16 flex items-center justify-center rounded-full bg-blue-100 mx-auto mb-4 shadow">
+                    <i class="fas fa-bullseye text-3xl text-blue-700"></i>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold text-blue-900 mb-6">Objetivos</h2>
+            </div>
+            <ul class="text-lg text-gray-700 space-y-4 max-w-3xl mx-auto">
+                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-blue-500 mt-1"></i><span><span class="font-semibold">Garantizar</span> la participación social en materia de Protección Civil con la implementación de Programas Internos o Específicos.</span></li>
+                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-blue-500 mt-1"></i><span>Lograr la <span class="font-semibold">coordinación</span> de recursos y esfuerzos entre las autoridades estatales y municipales así como con los organismos en la materia.</span></li>
+                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-blue-500 mt-1"></i><span>Conformar una estructura <span class="font-semibold">humana</span> de calidad que permita desarrollar de manera adecuada la planeación y programación de acciones preventivas.</span></li>
+                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-blue-500 mt-1"></i><span>Integrar nuevos elementos y herramientas en la ejecución de acciones para la gestión integral de riesgos de nuestros clientes.</span></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Metas -->
+    <section id="metas" class="section-padding bg-blue-50">
+        <div class="container">
+            <div class="text-center mb-12">
+                <div class="w-16 h-16 flex items-center justify-center rounded-full bg-blue-100 mx-auto mb-4 shadow">
+                    <i class="fas fa-flag-checkered text-3xl text-blue-700"></i>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold text-blue-900 mb-6">Metas</h2>
+            </div>
+            <ul class="text-lg text-gray-700 space-y-4 max-w-3xl mx-auto">
+                <li class="flex items-start gap-3"><i class="fas fa-star text-blue-500 mt-1"></i><span>Consolidarnos como una empresa <span class="font-semibold">líder en prevención</span> para nuestros clientes.</span></li>
+                <li class="flex items-start gap-3"><i class="fas fa-star text-blue-500 mt-1"></i><span>Ser eficientes en todos los rubros para lograr <span class="font-semibold">satisfacer</span> las necesidades de nuestros clientes.</span></li>
+                <li class="flex items-start gap-3"><i class="fas fa-star text-blue-500 mt-1"></i><span>Terminar por conformar nuestro Consorcio que ayude a nuestros clientes a encontrar todos los servicios de Protección Civil, Seguridad e Higiene y Gestión Administrativa en un solo lugar.</span></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Equipo -->
+    <section id="equipo" class="section-padding bg-white">
+        <div class="container">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-blue-900 mb-6">Nuestro Equipo</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Profesionales altamente capacitados y comprometidos con la excelencia en protección civil y seguridad.</p>
+            </div>
+            <div class="grid-3">
+                <div class="card relative overflow-hidden">
+                    <img src="Foto del equipo GRICOP (1).png" alt="Coordinación General" class="w-full h-56 object-cover rounded-xl mb-4">
+                    <span class="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center"><i class="fas fa-user-cog mr-2"></i>Coordinación</span>
+                    <h3 class="text-xl font-semibold text-blue-900 mb-2">Coordinación General</h3>
+                    <p class="text-blue-600 font-medium mb-2">Gestión y Administración</p>
+                    <p class="text-gray-600">Equipo administrativo encargado de la coordinación y seguimiento de todos los servicios.</p>
+                </div>
+                <div class="card relative overflow-hidden">
+                    <img src="Foto del equipo GRICOP (2).jpeg" alt="Equipo de Capacitación" class="w-full h-56 object-cover rounded-xl mb-4">
+                    <span class="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center"><i class="fas fa-chalkboard-teacher mr-2"></i>Capacitación</span>
+                    <h3 class="text-xl font-semibold text-blue-900 mb-2">Equipo de Capacitación</h3>
+                    <p class="text-blue-600 font-medium mb-2">Especialistas en Protección Civil</p>
+                    <p class="text-gray-600">Instructores certificados en protección civil, primeros auxilios y manejo de emergencias.</p>
+                </div>
+                <div class="card relative overflow-hidden">
+                    <img src="Foto del equipo GRICOP (3).jpeg" alt="Personal Paramédico" class="w-full h-56 object-cover rounded-xl mb-4">
+                    <span class="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center"><i class="fas fa-briefcase-medical mr-2"></i>Paramédicos</span>
+                    <h3 class="text-xl font-semibold text-blue-900 mb-2">Personal Paramédico</h3>
+                    <p class="text-blue-600 font-medium mb-2">Atención Prehospitalaria</p>
+                    <p class="text-gray-600">Técnicos y paramédicos especializados en atención de emergencias médicas y traslados.</p>
+                </div>
+                <div class="card relative overflow-hidden">
+                    <img src="Foto del equipo GRICOP (4).jpeg" alt="Consultores" class="w-full h-56 object-cover rounded-xl mb-4">
+                    <span class="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center"><i class="fas fa-user-tie mr-2"></i>Consultores</span>
+                    <h3 class="text-xl font-semibold text-blue-900 mb-2">Consultores</h3>
+                    <p class="text-blue-600 font-medium mb-2">Gestión de Riesgos</p>
+                    <p class="text-gray-600">Expertos en evaluación de riesgos, planes de contingencia y consultoría especializada.</p>
+                </div>
+                <div class="card relative overflow-hidden">
+                    <img src="Foto del equipo GRICOP (5).jpeg" alt="Brigadas de Emergencia" class="w-full h-56 object-cover rounded-xl mb-4">
+                    <span class="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center"><i class="fas fa-people-carry mr-2"></i>Brigadas</span>
+                    <h3 class="text-xl font-semibold text-blue-900 mb-2">Brigadas de Emergencia</h3>
+                    <p class="text-blue-600 font-medium mb-2">Respuesta Inmediata</p>
+                    <p class="text-gray-600">Personal entrenado para respuesta rápida y manejo de situaciones de emergencia.</p>
+                </div>
+                <div class="card relative overflow-hidden">
+                    <img src="Foto del equipo GRICOP (6).jpeg" alt="Equipo Técnico" class="w-full h-56 object-cover rounded-xl mb-4">
+                    <span class="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center"><i class="fas fa-tools mr-2"></i>Técnico</span>
+                    <h3 class="text-xl font-semibold text-blue-900 mb-2">Equipo Técnico</h3>
+                    <p class="text-blue-600 font-medium mb-2">Instalaciones y Sistemas</p>
+                    <p class="text-gray-600">Técnicos especializados en instalación de sistemas de alertamiento y evaluaciones estructurales.</p>
+                </div>
+                <div class="card relative overflow-hidden">
+                    <img src="Foto del equipo GRICOP (7).png" alt="Equipo Especializado" class="w-full h-56 object-cover rounded-xl mb-4">
+                    <span class="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center"><i class="fas fa-user-md mr-2"></i>Especialistas</span>
+                    <h3 class="text-xl font-semibold text-blue-900 mb-2">Equipo Especializado</h3>
+                    <p class="text-blue-600 font-medium mb-2">Especialistas Técnicos</p>
+                    <p class="text-gray-600">Profesionales con experiencia en áreas técnicas y de consultoría avanzada.</p>
+                </div>
+                <div class="card relative overflow-hidden">
+                    <img src="Foto del equipo GRICOP (8).png" alt="Equipo Multidisciplinario" class="w-full h-56 object-cover rounded-xl mb-4">
+                    <span class="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center"><i class="fas fa-users-cog mr-2"></i>Multidisciplinario</span>
+                    <h3 class="text-xl font-semibold text-blue-900 mb-2">Equipo Multidisciplinario</h3>
+                    <p class="text-blue-600 font-medium mb-2">Trabajo en Equipo</p>
+                    <p class="text-gray-600">Integración de expertos de distintas áreas para soluciones integrales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (idéntico a servicios.html) -->
+    <footer class="bg-gray-900 text-white">
+        <div class="container py-12 md:py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Logo y descripción -->
+                <div class="lg:col-span-2 space-y-6">
+                    <div class="flex items-center space-x-3">
+                        <div class="bg-white p-2 rounded-lg">
+                            <img src="LogoGRICOP_Imagen.png" alt="Logo GRICOP" class="w-8 h-8 object-contain">
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Grupo GRICOP</h3>
+                            <p class="text-sm text-gray-400">Consultores en Protección Civil</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed max-w-md">
+                        Especialistas en protección civil y seguridad industrial con más de 15 años garantizando el cumplimiento normativo empresarial.
+                    </p>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="bg-blue-600/20 text-blue-300 px-3 py-1 rounded-full text-sm font-medium">
+                            <i class="fas fa-shield-check mr-1"></i> Certificados en Protección Civil
+                        </span>
+                        <span class="bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full text-sm font-medium">
+                            <i class="fas fa-award mr-1"></i> 15+ Años de Experiencia
+                        </span>
+                        <span class="bg-blue-400/20 text-blue-300 px-3 py-1 rounded-full text-sm font-medium">
+                            <i class="fas fa-heart mr-1"></i> 500+ Empresas Protegidas
+                        </span>
+                    </div>
+                </div>
+                <!-- Mapa del sitio -->
+                <div class="space-y-4">
+                    <h4 class="text-lg font-semibold text-white">Mapa del Sitio</h4>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="index.html" class="text-gray-300 hover:text-blue-400 transition-colors flex items-center">
+                                <i class="fas fa-home w-4 mr-2 text-blue-400"></i>
+                                Inicio
+                            </a>
+                        </li>
+                        <li>
+                            <a href="servicios.html" class="text-gray-300 hover:text-blue-400 transition-colors flex items-center">
+                                <i class="fas fa-cogs w-4 mr-2 text-blue-400"></i>
+                                Servicios
+                            </a>
+                        </li>
+                        <li>
+                            <a href="nosotros.html" class="text-gray-300 hover:text-blue-400 transition-colors flex items-center">
+                                <i class="fas fa-users w-4 mr-2 text-blue-400"></i>
+                                Nosotros
+                            </a>
+                        </li>
+                        <li>
+                            <a href="contacto.html" class="text-gray-300 hover:text-blue-400 transition-colors flex items-center">
+                                <i class="fas fa-envelope w-4 mr-2 text-blue-400"></i>
+                                Contacto
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Servicios principales -->
+                <div class="space-y-4">
+                    <h4 class="text-lg font-semibold text-white">Servicios Principales</h4>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="servicios.html#consultoria" class="text-gray-300 hover:text-blue-300 transition-colors flex items-center">
+                                <i class="fas fa-shield-alt w-4 mr-2 text-blue-300"></i>
+                                Protección Civil
+                            </a>
+                        </li>
+                        <li>
+                            <a href="servicios.html#capacitacion" class="text-gray-300 hover:text-blue-300 transition-colors flex items-center">
+                                <i class="fas fa-graduation-cap w-4 mr-2 text-blue-300"></i>
+                                Capacitaciones STPS
+                            </a>
+                        </li>
+                        <li>
+                            <a href="servicios.html#consultoria" class="text-gray-300 hover:text-blue-300 transition-colors flex items-center">
+                                <i class="fas fa-hard-hat w-4 mr-2 text-blue-300"></i>
+                                Seguridad e Higiene
+                            </a>
+                        </li>
+                        <li>
+                            <a href="servicios.html#consultoria" class="text-gray-300 hover:text-blue-300 transition-colors flex items-center">
+                                <i class="fas fa-cogs w-4 mr-2 text-blue-300"></i>
+                                Gestión Administrativa
+                            </a>
+                        </li>
+                        <li>
+                            <a href="servicios.html#integrales" class="text-gray-300 hover:text-blue-300 transition-colors flex items-center">
+                                <i class="fas fa-plus-circle w-4 mr-2 text-blue-300"></i>
+                                Servicios Integrales
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Bottom Bar -->
+        <div class="border-t border-gray-800 bg-gray-950">
+            <div class="container py-4 md:py-6">
+                <div class="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
+                    <div class="text-center lg:text-left">
+                        <p class="text-white font-semibold mb-1">
+                            © 2025 Grupo GRICOP Consultores
+                        </p>
+                        <p class="text-sm text-gray-400">
+                            Un producto de <span class="text-blue-400 font-medium">Tlatec</span> por 
+                            <span class="text-blue-300 font-medium">Teteocan Technologies</span> ©
+                        </p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-8">
+                        <div class="flex items-center space-x-2 text-sm text-gray-400">
+                            <i class="fas fa-clock text-blue-400"></i>
+                            <span class="text-center sm:text-left">Lun-Vie: 9:00-18:00 | Sáb: 9:00-14:00</span>
+                        </div>
+                        <div class="flex items-center space-x-4 sm:space-x-6 text-sm">
+                            <a href="nosotros.html" class="text-gray-400 hover:text-blue-400 transition-colors">Nosotros</a>
+                            <span class="text-gray-600 hidden sm:inline">•</span>
+                            <a href="servicios.html" class="text-gray-400 hover:text-blue-400 transition-colors">Servicios</a>
+                            <span class="text-gray-600 hidden sm:inline">•</span>
+                            <a href="contacto.html" class="text-gray-400 hover:text-blue-400 transition-colors">Contacto</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href').length > 1) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
