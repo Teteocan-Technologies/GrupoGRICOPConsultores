@@ -383,8 +383,8 @@
         <div class="container">
             <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-8 text-center">Empresas que han confiado en nosotros</h2>
             <div class="flex justify-center">
-                <div id="empresas-carousel-viewport" class="relative w-full max-w-5xl overflow-hidden px-2 md:px-8" style="height: 96px;">
-                    <div id="empresas-carousel-track" class="flex items-center h-full transition-transform duration-700 ease-in-out" style="will-change: transform;">
+                <div id="empresas-carousel-viewport" class="relative w-full max-w-5xl overflow-hidden px-2 md:px-8 empresas-carousel-viewport">
+                    <div id="empresas-carousel-track" class="flex items-center h-full empresas-carousel-track">
                         <!-- Las imágenes se insertan aquí por JS -->
                     </div>
                 </div>
@@ -783,10 +783,46 @@
     </footer>
 
     <!-- JavaScript -->
+    <style>
+    .empresas-carousel-viewport {
+        height: 96px;
+    }
+    .empresas-carousel-track {
+        will-change: transform;
+        transition: transform 1.2s cubic-bezier(0.4, 0.15, 0.25, 1);
+    }
+    .empresa-img-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        aspect-ratio: 1/1;
+        height: 96px;
+        min-width: 96px;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    @media (min-width: 768px) {
+        .empresas-carousel-viewport { height: 112px; }
+        .empresa-img-wrap { height: 112px; min-width: 112px; }
+    }
+    @media (min-width: 1024px) {
+        .empresas-carousel-viewport { height: 128px; }
+        .empresa-img-wrap { height: 128px; min-width: 128px; }
+    }
+    .empresa-img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        background: #fff;
+        border-radius: 0.75rem;
+        box-shadow: 0 2px 8px 0 rgba(30,64,175,0.07);
+    }
+    </style>
     <script>
-    // Carrusel de empresas clientes (solo imágenes, automático, sin controles)
+    // Carrusel infinito de empresas clientes
     const empresaFotos = [
-        "Empresa1.png", "Empresa2.png", "Empresa3.jpg", "Empresa4.jpg", "Empresa5.png", "Empresa6.jpg", "Empresa7.jpg", "Empresa8.png", "Empresa9.jpg", "Empresa10.jpg", "Empresa11.png", "Empresa12.jpg", "Empresa13.png", "Empresa14.png"
+        "Empresa1.png", "Empresa2.png", "Empresa3.jpg", "Empresa4.jpg", "Empresa5.png", "Empresa6.jpg", "Empresa7.jpg",
+        "Empresa8.png", "Empresa9.jpg", "Empresa10.jpg", "Empresa11.png", "Empresa12.jpg", "Empresa13.png", "Empresa14.png"
     ];
     const carouselTrack = document.getElementById('empresas-carousel-track');
     let empresaIndex = 0;
@@ -797,39 +833,56 @@
     }
     let empresaInterval = null;
     let isTransitioning = false;
+    let totalSlides = empresaFotos.length;
+
+    // Duplicar imágenes para efecto infinito
     function renderEmpresas() {
         carouselTrack.innerHTML = '';
         const visible = getVisibleEmpresas();
-        for (let i = 0; i < empresaFotos.length; i++) {
+        // Duplicamos las imágenes para el efecto infinito
+        const allFotos = empresaFotos.concat(empresaFotos);
+        for (let i = 0; i < allFotos.length; i++) {
             const imgWrap = document.createElement('div');
-            imgWrap.className = 'flex items-center justify-center aspect-square h-24 md:h-28 lg:h-32 min-w-[96px] md:min-w-[112px] lg:min-w-[128px] px-2 md:px-4';
+            imgWrap.className = 'empresa-img-wrap';
             const img = document.createElement('img');
-            img.src = empresaFotos[i];
-            img.alt = `Empresa cliente ${i+1}`;
-            img.className = 'max-h-full max-w-full object-contain rounded-xl bg-white shadow-sm';
+            img.src = allFotos[i];
+            img.alt = `Empresa cliente ${((i % empresaFotos.length) + 1)}`;
+            img.className = 'empresa-img';
             imgWrap.appendChild(img);
             carouselTrack.appendChild(imgWrap);
         }
-        updateCarouselPosition();
+        updateCarouselPosition(true);
     }
 
-    function updateCarouselPosition() {
+    function updateCarouselPosition(jump = false) {
         const visible = getVisibleEmpresas();
         const slideWidth = carouselTrack.children[0]?.offsetWidth || 140;
-        carouselTrack.style.transform = `translateX(-${empresaIndex * slideWidth}px)`;
+        // Para efecto infinito, usamos la mitad del track como loop
+        const total = empresaFotos.length;
+        let offset = empresaIndex * slideWidth;
+        carouselTrack.style.transition = jump ? 'none' : 'transform 1.2s cubic-bezier(0.4, 0.15, 0.25, 1)';
+        carouselTrack.style.transform = `translateX(-${offset}px)`;
     }
 
     function nextEmpresas() {
         if (isTransitioning) return;
         isTransitioning = true;
         const visible = getVisibleEmpresas();
-        empresaIndex = (empresaIndex + 1) % empresaFotos.length;
+        const total = empresaFotos.length;
+        empresaIndex++;
         updateCarouselPosition();
-        setTimeout(() => { isTransitioning = false; }, 700);
+        // Cuando llegamos al final de la primera tanda, saltamos sin transición al inicio de la segunda tanda
+        setTimeout(() => {
+            if (empresaIndex >= total) {
+                empresaIndex = 0;
+                updateCarouselPosition(true);
+            }
+            isTransitioning = false;
+        }, 1200);
     }
 
     function handleResize() {
-        updateCarouselPosition();
+        renderEmpresas();
     }
 
     window.addEventListener('resize', handleResize);
@@ -853,8 +906,8 @@
         const indicators = document.querySelectorAll('.carousel-indicator');
         const prevBtn = document.getElementById('prevSlide');
         const nextBtn = document.getElementById('nextSlide');
-        const totalSlides = slides.length;
 
+        const totalSlides = slides.length;
         function updateCarousel() {
             slides.forEach((slide, index) => {
                 if (index === currentSlide) {
