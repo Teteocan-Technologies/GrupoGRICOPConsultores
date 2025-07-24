@@ -378,6 +378,19 @@
     </section>
 
     <!-- Servicios Section -->
+    <!-- Carrusel de empresas clientes (solo imágenes, automático, sin controles) -->
+    <section class="py-20 bg-white">
+        <div class="container">
+            <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-8 text-center">Empresas que han confiado en nosotros</h2>
+            <div class="flex justify-center">
+                <div id="empresas-carousel-viewport" class="relative w-full max-w-5xl overflow-hidden px-2 md:px-8" style="height: 96px;">
+                    <div id="empresas-carousel-track" class="flex items-center h-full transition-transform duration-700 ease-in-out" style="will-change: transform;">
+                        <!-- Las imágenes se insertan aquí por JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section id="servicios" class="section-padding bg-blue-900 text-white">
         <div class="container">
             <div class="text-center mb-20">
@@ -533,7 +546,7 @@
         </div>
     </section>
 
-    <!-- Por qué elegirnos -->
+
     <section class="section-padding bg-blue-800 text-white relative overflow-hidden">
         <!-- Background elements -->
         <div class="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
@@ -770,6 +783,59 @@
     </footer>
 
     <!-- JavaScript -->
+    <script>
+    // Carrusel de empresas clientes (solo imágenes, automático, sin controles)
+    const empresaFotos = [
+        "Empresa1.png", "Empresa2.png", "Empresa3.jpg", "Empresa4.jpg", "Empresa5.png", "Empresa6.jpg", "Empresa7.jpg", "Empresa8.png", "Empresa9.jpg", "Empresa10.jpg", "Empresa11.png", "Empresa12.jpg", "Empresa13.png", "Empresa14.png"
+    ];
+    const carouselTrack = document.getElementById('empresas-carousel-track');
+    let empresaIndex = 0;
+    function getVisibleEmpresas() {
+        if(window.innerWidth < 500) return 1;
+        if(window.innerWidth < 768) return 2;
+        return 4;
+    }
+    let empresaInterval = null;
+    let isTransitioning = false;
+    function renderEmpresas() {
+        carouselTrack.innerHTML = '';
+        const visible = getVisibleEmpresas();
+        for (let i = 0; i < empresaFotos.length; i++) {
+            const imgWrap = document.createElement('div');
+            imgWrap.className = 'flex items-center justify-center aspect-square h-24 md:h-28 lg:h-32 min-w-[96px] md:min-w-[112px] lg:min-w-[128px] px-2 md:px-4';
+            const img = document.createElement('img');
+            img.src = empresaFotos[i];
+            img.alt = `Empresa cliente ${i+1}`;
+            img.className = 'max-h-full max-w-full object-contain rounded-xl bg-white shadow-sm';
+            imgWrap.appendChild(img);
+            carouselTrack.appendChild(imgWrap);
+        }
+        updateCarouselPosition();
+    }
+
+    function updateCarouselPosition() {
+        const visible = getVisibleEmpresas();
+        const slideWidth = carouselTrack.children[0]?.offsetWidth || 140;
+        carouselTrack.style.transform = `translateX(-${empresaIndex * slideWidth}px)`;
+    }
+
+    function nextEmpresas() {
+        if (isTransitioning) return;
+        isTransitioning = true;
+        const visible = getVisibleEmpresas();
+        empresaIndex = (empresaIndex + 1) % empresaFotos.length;
+        updateCarouselPosition();
+        setTimeout(() => { isTransitioning = false; }, 700);
+    }
+
+    function handleResize() {
+        updateCarouselPosition();
+    }
+
+    window.addEventListener('resize', handleResize);
+    renderEmpresas();
+    empresaInterval = setInterval(nextEmpresas, 2500);
+    </script>
     <script>
         // Menu móvil
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
